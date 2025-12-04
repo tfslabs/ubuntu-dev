@@ -34,7 +34,7 @@ apt install -y autoconf automake binutils bison flex make \
     m4 pkg-config libtool swig
 
 # Libraries & dev headers (sorted, duplicates removed)
-apt install -y lib32z1 libaom3 libalgorithm-diff-perl \
+apt install -y libaom3 libalgorithm-diff-perl \
     libalgorithm-diff-xs-perl libalgorithm-merge-perl \
     libarchive13 libasan8 libatomic1 libbinutils libbrotli1 \
     libcc1-0 libc-dev-bin libc-devtools libc6 libc6-dev \
