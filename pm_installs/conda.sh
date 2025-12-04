@@ -3,6 +3,8 @@
 set -euo pipefail
 trap 'echo "Error occurred at line ${LINENO} of ${BASH_SOURCE[0]}. Exiting..."; exit 1' ERR
 
+ARCH=$(uname -m)
+
 # Get the Miniconda
 curl -SL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-$ARCH.sh -o /tmp/miniconda.sh
 
