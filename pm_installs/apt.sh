@@ -149,9 +149,6 @@ apt install -y php php-cli php-common php-mbstring php-xml php-curl \
     php-imagick php-dev php-pear php-psr-http-message php-psr-log \
     php-sqlite3
 
-# Installing SQL tools
-ACCEPT_EULA=Y apt install -y mysql-client postgresql-client mssql-tools*
-
 #############################################
 # Clean up packages
 apt autoremove -y && \
