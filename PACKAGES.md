@@ -191,7 +191,13 @@
 | npm | npm | `npm` | Node package manager |
 | yarn | Yarn | `yarn` | Alternative JS package manager |
 
-## 20. Conda & Python ecosystem
+## 20. Ruby on Rails
+
+| Package | Friendly Name | Package Name | Notes |
+|---|---|---|---|
+| Ruby | Ruby Full Package | `ruby-full` | Ruby Programming Language |
+
+## 21. Conda & Python ecosystem
 
 > Installed by `conda.sh` (Miniconda installer + conda-forge channel).
 
@@ -209,3 +215,6 @@
 | pyyaml / yaml | YAML | `pyyaml`, `yaml` | YAML parsing |
 | requests | Requests | `requests` | HTTP client for Python |
 | beautifulsoup4 | Beautiful Soup | `beautifulsoup4` | HTML parsing |
+| R Programming Language | R | `r-base` | R Programming Language |
+| Julia Programming Language | Julia | `julia` | Julia Programming Language |
+| Qiskit | Qiskit | `qiskit` | Qiskit for Quantum Computers |

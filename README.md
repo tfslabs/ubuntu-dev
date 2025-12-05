@@ -8,7 +8,7 @@ The build images are based on [Ubuntu LTS images](https://ubuntu.com/containers)
 
 DevOps users are recommended to use those available containers:
 
-- `noble`/`latest` (`amd64` and `arm64/v8`)
+- `noble` (`amd64` and `arm64/v8`)
 
 ## Usage
 
@@ -21,6 +21,10 @@ docker pull theflightsims/ubuntu-dev:noble-amd64
 # Ubuntu 24.04 LTS (Noble, ARM64v8)
 docker pull theflightsims/ubuntu-dev:noble-arm64v8
 ```
+
+## Packages installed
+
+See in [PACKAGES.md](./PACKAGES.md)
 
 ## Contribute
 
