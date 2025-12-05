@@ -3,9 +3,6 @@
 set -euo pipefail
 trap 'echo "Error occurred at line ${LINENO} of ${BASH_SOURCE[0]}. Exiting..."; exit 1' ERR
 
-# Running non-interactive
-export DEBIAN_FRONTEND=noninteractive
-
 # Detect architecture and map common names to Miniconda artifact names
 ARCH=$(uname -m)
 
@@ -19,6 +16,7 @@ chmod +x /tmp/miniconda.sh
 # Run the installer non-interactively (-b) and install to /usr/local
 bash /tmp/miniconda.sh -bfp /usr/local
 
+# Remove the installer
 rm -rf /tmp/miniconda.sh
 
 # Accept terms of service if supported (non-fatal if command is unavailable)
@@ -43,4 +41,5 @@ for pkg in setuptools pip sqlite wheel numpy pytz six \
     conda install -y -c conda-forge "$pkg"
 done
 
+# Clean cache
 conda clean --all -y
