@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build Ubuntu 24.04 LTS Dev Container
 permissions:
   contents: read
 
@@ -41,7 +41,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./build_noble
+          file: ./dockerfiles/noble
           platforms: linux/amd64
           push: true
           tags: |
@@ -59,8 +59,8 @@ jobs:
           dotnet: true
           haskell: true
           large-packages: true
-          docker-images: true
-          swap-storage: true
+          docker-images: false
+          swap-storage: false
       - name: Check out the repo
         uses: actions/checkout@v4
 
@@ -76,11 +76,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push multi-arch image for noble (arm64)
+      - name: Build and push multi-arch image for noble (amd64)
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./build_noble
+          file: ./dockerfiles/noble
           platforms: linux/arm64/v8
           push: true
           tags: |
