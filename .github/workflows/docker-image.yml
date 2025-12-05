@@ -4,9 +4,15 @@ permissions:
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
+  schedule:
+    - cron: "0 0 * * 1"
+
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -16,13 +22,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up QEMU (for cross-platform)
-        uses: docker/setup-qemu-action@v2
-
+        uses: docker/setup-qemu-action@v3.7.0
       - name: Set up Docker buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3.11.1
 
       - name: Log in to DockerHub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v3.6.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}

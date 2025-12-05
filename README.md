@@ -8,8 +8,7 @@ The build images are based on [Ubuntu LTS images](https://ubuntu.com/containers)
 
 DevOps users are recommended to use those available containers:
 
-- `noble` (`amd64` and `arm64/v8`) (**Not yet deployed**)
-- `resolute` (`amd64` and `arm64/v8`) (**Not yet deployed**)
+- `noble`/`latest` (`amd64` and `arm64/v8`)
 
 ## Usage
 
@@ -18,9 +17,6 @@ Pulling image using the Ubuntu codename (see above for available codenames)
 ```bash
 # Ubuntu 24.04 LTS (Noble)
 docker pull theflightsims/ubuntu-dev:noble
-
-# Ubuntu 26.04 LTS (Resolute)
-docker pull theflightsims/ubuntu-dev:resolute
 ```
 
 Docker also support multi-arch, if the image support it. In this case, you can also specify the platform. For example
