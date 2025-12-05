@@ -8,7 +8,7 @@ The build images are based on [Ubuntu LTS images](https://ubuntu.com/containers)
 
 DevOps users are recommended to use those available containers:
 
-- `noble`/`latest` (`amd64` and `arm64/v8`)
+- `noble` (`amd64` and `arm64/v8`)
 
 ## Usage
 
