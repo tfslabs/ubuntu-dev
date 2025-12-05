@@ -45,13 +45,13 @@ apt install -y libaom3 libalgorithm-diff-perl \
     libgsl-dev libgssapi-krb5-2 libgtk-3-0 libheif1 libitm1 \
     libicu74 libjbig0 libjsoncpp25 liblsan0 libmagic-dev \
     libmpc-dev libmpfr-dev libnghttp2-14 libnsl-dev libnsl2 \
-    libnuma1 libpng16-16 libpsl5 libquadmath0 librhash0 \
-    librtmp1 libsecret-1-dev libssh2-1 libssl3t64 libstdc++6 \
-    libstdc++-10-dev libstdc++-11-dev libstdc++-12-dev \
-    libtirpc-dev libtsan2 libubsan1 libuv1 libwebp7 \
-    libwmf-bin libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 \
-    libxkbfile-dev libxpm4 libx265-199 libxml2 libxss1 libyuv0 \
-    libyaml-dev zlib1g
+    libnuma1 libpng16-16 libpsl5 librhash0 librtmp1 \
+    libsecret-1-dev libssl3t64 libstdc++6 libstdc++-10-dev \
+    libstdc++-11-dev libstdc++-12-dev libtirpc-dev \
+    libtsan2 libubsan1 libuv1 libwebp7 libwmf-bin \
+    libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 \
+    libxkbfile-dev libxpm4 libx265-199 libxml2 libxss1 \
+    libyuv0 libyaml-dev zlib1g
 
 # Networking, SSH & network tools
 apt install -y iproute2 iputils-ping dnsutils net-tools \
@@ -81,7 +81,7 @@ apt install -y fontconfig-config fonts-dejavu-core \
     texlive-fonts-recommended
 
 # Misc utilities
-apt install -y telnet systemd-coredump tk zsh
+apt install -y telnet systemd-coredump zsh
 
 #############################################
 # Installing General GNU compilers and build tools
