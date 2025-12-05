@@ -31,10 +31,12 @@ You can use the `docker build`, with
 - `-f` for composing input (see for [Docker composing file naming](#naming-docker-compose-files) to use the correct file)
 - `-t` for exporting image
 
+> Note: The architecture must also be seperated.
+
 For example, building a dev container Ubuntu 24.04 LTS on AMD64
 
 ```bash
-docker build --platform "linux/amd64" -f ./dockerfiles/noble -t "theflightsims/ubuntu-dev:noble" .
+docker build --platform "linux/amd64" -f ./dockerfiles/noble -t "theflightsims/ubuntu-dev:noble-amd64" .
 ```
 
 ## GitHub Actions

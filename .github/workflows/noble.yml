@@ -45,8 +45,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            theflightsims/ubuntu-dev:noble
-            theflightsims/ubuntu-dev:latest
+            theflightsims/ubuntu-dev:noble-amd64
 
   build-noble-arm64v8:
     runs-on: ubuntu-latest
@@ -84,5 +83,4 @@ jobs:
           platforms: linux/arm64/v8
           push: true
           tags: |
-            theflightsims/ubuntu-dev:noble
-            theflightsims/ubuntu-dev:latest
+            theflightsims/ubuntu-dev:noble-arm64v8

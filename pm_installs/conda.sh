@@ -38,7 +38,7 @@ for pkg in setuptools pip sqlite wheel numpy pytz six \
         python-dateutil pandas scikit-learn matplotlib \
         scipy yaml lxml snappy hdf5 cffi pyyaml click \
         requests beautifulsoup4 attrs charset-normalizer \
-        protobuf idna urllib3 packaging pyscf openpulse; do
+        protobuf idna urllib3 packaging; do
     conda install -y -c conda-forge "$pkg"
 done
 

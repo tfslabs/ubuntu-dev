@@ -209,5 +209,3 @@
 | pyyaml / yaml | YAML | `pyyaml`, `yaml` | YAML parsing |
 | requests | Requests | `requests` | HTTP client for Python |
 | beautifulsoup4 | Beautiful Soup | `beautifulsoup4` | HTML parsing |
-| pyscf | PySCF | `pyscf` | Quantum chemistry package (conda) |
-| openpulse | OpenPulse (IBM Q related) | `openpulse` | Quantum control / pulse-related package |

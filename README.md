@@ -15,18 +15,11 @@ DevOps users are recommended to use those available containers:
 Pulling image using the Ubuntu codename (see above for available codenames)
 
 ```bash
-# Ubuntu 24.04 LTS (Noble)
-docker pull theflightsims/ubuntu-dev:noble
-```
+# Ubuntu 24.04 LTS (Noble, AMD64)
+docker pull theflightsims/ubuntu-dev:noble-amd64
 
-Docker also support multi-arch, if the image support it. In this case, you can also specify the platform. For example
-
-```bash
-# Ubuntu 24.04 LTS (Noble, AMD64 image)
-docker pull --platform "linux/amd64" theflightsims/ubuntu-dev:noble
-
-# Ubuntu 24.04 LTS (Noble, ARM64v8 image)
-docker pull --platform "linux/arm64/v8" theflightsims/ubuntu-dev:noble
+# Ubuntu 24.04 LTS (Noble, ARM64v8)
+docker pull theflightsims/ubuntu-dev:noble-arm64v8
 ```
 
 ## Contribute
