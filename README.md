@@ -22,6 +22,10 @@ docker pull theflightsims/ubuntu-dev:noble-amd64
 docker pull theflightsims/ubuntu-dev:noble-arm64v8
 ```
 
+## Packages installed
+
+See in [PACKAGES.md](./PACKAGES.md)
+
 ## Contribute
 
 See in [CONTRIBUTING.md](./CONTRIBUTING.md)
