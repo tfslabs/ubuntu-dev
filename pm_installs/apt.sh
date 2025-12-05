@@ -107,9 +107,6 @@ apt install -y mingw-w64 mingw-w64-tools mingw-w64-common \
 # Installing ARM toolchains
 apt install -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
 
-# Installing Fortran compilers for cross-compilation
-apt install -y gfortran-aarch64-linux-gnu gfortran-arm-linux-gnueabihf
-
 # Installing LLVM toolchain
 apt install -y llvm llvm-dev llvm-runtime clangd lld lldb \
     libclang-dev libllvm14 llvm-14 llvm-14-dev llvm-14-runtime
@@ -125,9 +122,6 @@ apt install -y default-jdk openjdk-11-jdk openjdk-11-jre \
     openjdk-17-jdk openjdk-17-jre \
     openjdk-21-jdk openjdk-21-jre
 
-# Installing Rust programming language and toolchain
-apt install -y rustc cargo rust-doc rust-src rust-gdb rust-clippy rustfmt
-
 # Instaling .NET SDKs and runtimes
 apt install -y \
     dotnet-sdk-8.0 aspnetcore-runtime-8.0 dotnet-runtime-8.0 \
@@ -137,17 +131,8 @@ apt install -y \
 apt install -y adb android-sdk-platform-tools android-sdk-build-tools \
     android-sdk-platform-tools-common fastboot
 
-# Installing Go programming language
-apt install -y golang golang-go golang-src
-
 # Installing Node.js and npm
 apt install -y nodejs npm yarn
-
-# Install PHP and Composer
-apt install -y php php-cli php-common php-mbstring php-xml php-curl \
-    php-mysql php-zip php-bcmath php-gd php-soap composer php-intl \
-    php-imagick php-dev php-pear php-psr-http-message php-psr-log \
-    php-sqlite3
 
 #############################################
 # Clean up packages
