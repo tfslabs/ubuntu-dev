@@ -32,7 +32,7 @@ apt install -y autotools-dev coreutils file locales tzdata \
     time tar xz-utils curl jq dbus xxd
 
 # Compression & archiving
-apt install -y p7zip-full p7zip-rar 7zip 7zip-standalone \
+apt install -y p7zip-full p7zip-rar 7zip \
     bzip2 lz4 unzip upx xorriso zip zsync zstd
 
 # Development tools & build dependencies
@@ -44,7 +44,7 @@ apt install -y libaom3 libalgorithm-diff-perl \
     libalgorithm-diff-xs-perl libalgorithm-merge-perl \
     libarchive13 libasan8 libatomic1 libbinutils libbrotli1 \
     libcc1-0 libc-dev-bin libc-devtools libc6 libc6-dev \
-    libc6-dev-*-cross libcurl4 libde265-0 libdeflate0 \
+    libcurl4 libde265-0 libdeflate0 libcrypt-dev libctf-nobfd0 \
     libdpkg-perl libexpat1 libfakeroot libfile-fcntllock-perl \
     libfl2 libfontconfig1 libfreetype6 libgbm-dev libgmp-dev \
     libgmpxx4ldbl libgcc-12-dev libgcc-s1 libgomp1 libgd3 \
@@ -68,7 +68,7 @@ apt install -y iproute2 iputils-ping dnsutils net-tools \
 apt install -y gnupg2 haveged libnss3-tools pass openssl
 
 # Version control & SCM
-apt install -y mercurial subversion git
+apt install -y git
 
 # File & media processing
 apt install -y ffmpeg imagemagick mediainfo \
@@ -80,14 +80,14 @@ apt install -y shellcheck parallel sudo
 # Databases & search
 apt install -y sqlite3 sphinxsearch
 
-# Misc utilities
-apt install -y systemd-coredump
+# Font conf
+apt install -y fontconfig-config fonts-dejavu-core
 
 #############################################
 # Installing General GNU compilers and build tools
 apt install -y automake build-essential binutils-dev binutils-multiarch \
     gcc g++ gdb gdbserver lld cmake cmake-data ninja-build ccache clang \
-    clang-format clang-tidy clang-tools gfortran cpp gdb-multiarch
+    clang-format clang-tidy clang-tools gfortran cpp cpp-12 gdb-multiarch
 
 # Installing cross-compilation tools (AMD64)
 apt install -y binutils-x86-64-linux-gnu binutils-x86-64-linux-gnu-dbg \
@@ -103,9 +103,6 @@ if [[ "$ARCH" == "x86_64" ]]; then
 else
     echo "binutils-x86-64-gnu is not available for ARM64"
 fi
-
-# Installing ARM toolchains
-apt install -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
 
 # Installing LLVM toolchain
 apt install -y llvm llvm-dev llvm-runtime clangd lld lldb \
@@ -128,20 +125,10 @@ apt install -y default-jdk \
     openjdk-17-jdk openjdk-17-jre \
     openjdk-21-jdk openjdk-21-jre
 
-# Installing Rust programming language and toolchain
-apt install -y rustc cargo rust-doc rust-src rust-gdb rust-clippy rustfmt
-
 # Instaling .NET SDKs and runtimes
 apt install -y \
     dotnet-sdk-8.0 aspnetcore-runtime-8.0 dotnet-runtime-8.0 \
     dotnet-sdk-9.0 aspnetcore-runtime-9.0 dotnet-runtime-9.0
-
-# Installing Android SDK command-line tools
-apt install -y adb android-sdk-platform-tools android-sdk-build-tools \
-    android-sdk-platform-tools-common fastboot
-
-# Installing Go programming language
-apt install -y golang golang-go golang-src
 
 # Installing Node.js and npm
 apt install -y nodejs npm yarn
