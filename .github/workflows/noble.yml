@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build Ubuntu 24.04 LTS Dev Container
 permissions:
   contents: read
 
@@ -9,7 +9,7 @@ on:
     - cron: "0 0 * * 1"
 
 jobs:
-  build-noble-amd64:
+  build-noble:
     runs-on: ubuntu-latest
     steps:
       - name: Free Disk Space (Ubuntu)
