@@ -6,7 +6,7 @@ COPY --chown=root:root pm_installs/apt.sh /build/apt.sh
 COPY --chown=root:root pm_installs/conda.sh /build/conda.sh
 
 RUN chmod +x /build/*.sh
-RUN /build/apt.sh
-RUN /build/conda.sh
+RUN ["/bin/bash", "/build/apt.sh"]
+RUN ["/bin/bash", "/build/conda.sh"]
 
 CMD ["/bin/bash"]
