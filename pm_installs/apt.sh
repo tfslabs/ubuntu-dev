@@ -147,6 +147,9 @@ apt install -y golang golang-go golang-src
 # Installing Node.js and npm
 apt install -y nodejs npm yarn
 
+# Install full Ruby package
+apt install -y ruby-full
+
 #############################################
 # Clean up packages
 apt autoremove -y && \
