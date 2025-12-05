@@ -31,4 +31,4 @@ docker pull --platform "linux/arm64/v8" theflightsims/ubuntu-dev:noble
 
 ## Contribute
 
-See in [CONTRIBUTE.md](./CONTRIBUTE.md)
+See in [CONTRIBUTING.md](./CONTRIBUTING.md)
