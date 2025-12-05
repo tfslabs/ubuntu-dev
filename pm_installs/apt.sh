@@ -3,6 +3,31 @@
 set -euo pipefail
 trap 'echo "Error occurred at line ${LINENO} of ${BASH_SOURCE[0]}. Exiting..."; exit 1' ERR
 
+# Make APT non-interactive for automated builds (Docker, CI)
+# This avoids prompts from debconf/dpkg during package install/upgrade.
+export DEBIAN_FRONTEND=noninteractive
+export DEBCONF_NONINTERACTIVE_SEEN=true
+export APT_LISTCHANGES_FRONTEND=none
+export DEBIAN_PRIORITY=critical
+
+# Provide a small wrapper for `apt` so we automatically pass dpkg options
+# for commands that may trigger interactive config file prompts. We use
+# `command apt` to bypass the function when invoking the real binary.
+apt() {
+    local cmd="$1"; shift || true
+    case "$cmd" in
+        install|full-upgrade|upgrade|dist-upgrade|autoremove|remove|purge)
+            command apt "$cmd" -o Dpkg::Options::="--force-confdef" \
+                -o Dpkg::Options::="--force-confold" -y "$@"
+            ;;
+        *)
+            command apt "$cmd" "$@"
+            ;;
+    esac
+}
+
+# Set the current architecture
+
 #############################################
 # Update and Upgrade the current instance
 apt update
@@ -83,20 +108,17 @@ apt install -y automake build-essential binutils-dev binutils-multiarch \
     gcc g++ gdb gdbserver lld cmake cmake-data ninja-build ccache clang \
     clang-format clang-tidy clang-tools gfortran cpp gdb-multiarch
 
-# Installing cross-compilation tools (AMD64)
-apt install -y binutils-x86-64-gnu binutils-x86-64-linux-gnu \
-    binutils-x86-64-linux-gnu-dbg gcc-*-x86-64-linux-gnu \
-    g++-*-x86-64-linux-gnu cpp-*-x86-64-linux-gnu
+if [[ "$ARCH" == "x86_64" ]]; then
+    # Installing cross-compilation tools (AMD64)
+    apt install -y binutils-x86-64-gnu binutils-x86-64-linux-gnu \
+        binutils-x86-64-linux-gnu-dbg gcc-*-x86-64-linux-gnu \
+        g++-*-x86-64-linux-gnu cpp-*-x86-64-linux-gnu
 
-# Installing cross-compilation tools (ARM64)
-apt install -y binutils-aarch64-linux-gnu \
-    binutils-aarch64-linux-gnu-dbg gcc-*-aarch64-linux-gnu \
-    g++-*-aarch64-linux-gnu cpp-*-aarch64-linux-gnu
-
-# Installing compilers for MinGW (Windows x64 target)
-apt install -y mingw-w64 mingw-w64-tools mingw-w64-common \
-    binutils-mingw-w64 binutils-mingw-w64-x86-64 \
-    gcc-mingw-w64 gcc-mingw-w64-* g++-mingw-w64 g++-mingw-w64
+    # Installing compilers for MinGW (Windows x64 target)
+    apt install -y mingw-w64 mingw-w64-tools mingw-w64-common \
+        binutils-mingw-w64 binutils-mingw-w64-x86-64 \
+        gcc-mingw-w64 gcc-mingw-w64-* g++-mingw-w64 g++-mingw-w64
+fi
 
 # Installing ARM toolchains
 apt install -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
