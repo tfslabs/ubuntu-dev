@@ -31,5 +31,11 @@ docker pull --platform "linux/arm64/v8" theflightsims/ubuntu-dev:noble
 
 ## Development
 
+### Self-development
+
 - Base installation: in folder `pm_installs` (stands for Package Manager Install). It contains `apt.sh` (uses `apt` package manager) and `conda.sh` (uses `conda` package manager) to deploy applications. Note: `apt.sh` always run before any other package managers.
 - `build_<codename>` and `run_build_<codename>.sh` (where the `<codename>` is the supported codename above): Support building the container faster.
+
+### GitHub Actions
+
+> Note: Only `docker/*` and `actions/*` workflows are allowed.
