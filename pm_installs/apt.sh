@@ -3,9 +3,6 @@
 set -euo pipefail
 trap 'echo "Error occurred at line ${LINENO} of ${BASH_SOURCE[0]}. Exiting..."; exit 1' ERR
 
-# Running non-interactive
-export DEBIAN_FRONTEND=noninteractive
-
 # Get the arch
 ARCH=$(uname -m)
 
