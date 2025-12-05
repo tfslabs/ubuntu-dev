@@ -108,7 +108,7 @@ apt install -y automake build-essential binutils-dev binutils-multiarch \
     gcc g++ gdb gdbserver lld cmake cmake-data ninja-build ccache clang \
     clang-format clang-tidy clang-tools gfortran cpp gdb-multiarch
 
-if [[ "$ARCH" == "x86_64" ]]; then
+if [[ $(uname -m) == "x86_64" ]]; then
     # Installing cross-compilation tools (AMD64)
     apt install -y binutils-x86-64-gnu binutils-x86-64-linux-gnu \
         binutils-x86-64-linux-gnu-dbg gcc-*-x86-64-linux-gnu \
