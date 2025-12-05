@@ -20,9 +20,8 @@ jobs:
           dotnet: true
           haskell: true
           large-packages: true
-          docker-images: true
-          swap-storage: true
-          
+          docker-images: false
+          swap-storage: false
       - name: Check out the repo
         uses: actions/checkout@v4
 
