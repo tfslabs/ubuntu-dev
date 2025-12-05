@@ -74,14 +74,8 @@ apt install -y shellcheck parallel sudo
 # Databases & search
 apt install -y sqlite3 sphinxsearch
 
-# TeX & documentation tooling
-apt install -y fontconfig-config fonts-dejavu-core \
-    texinfo texlive-base texlive-base-bin \
-    texlive-latex-base texlive-plain-generic \
-    texlive-fonts-recommended
-
 # Misc utilities
-apt install -y telnet systemd-coredump zsh
+apt install -y systemd-coredump
 
 #############################################
 # Installing General GNU compilers and build tools
@@ -113,7 +107,7 @@ apt install -y llvm llvm-dev llvm-runtime clangd lld lldb \
 
 # Additional tools for building Linux kernels and modules
 apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
-    libelf-dev dwarves bc git fakeroot libcap-dev \
+    libelf-dev dwarves bc fakeroot libcap-dev \
     libc6-dev-i386 libc6-dev-x32 libnuma-dev libudev-dev libpci-dev \
     libiberty-dev libmnl-dev libbpf-dev
 
@@ -121,6 +115,9 @@ apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
 apt install -y default-jdk openjdk-11-jdk openjdk-11-jre \
     openjdk-17-jdk openjdk-17-jre \
     openjdk-21-jdk openjdk-21-jre
+
+# Installing Rust programming language and toolchain
+apt install -y rustc cargo rust-doc rust-src rust-gdb rust-clippy rustfmt
 
 # Instaling .NET SDKs and runtimes
 apt install -y \
@@ -130,6 +127,9 @@ apt install -y \
 # Installing Android SDK command-line tools
 apt install -y adb android-sdk-platform-tools android-sdk-build-tools \
     android-sdk-platform-tools-common fastboot
+
+# Installing Go programming language
+apt install -y golang golang-go golang-src
 
 # Installing Node.js and npm
 apt install -y nodejs npm yarn
