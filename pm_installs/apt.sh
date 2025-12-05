@@ -3,30 +3,11 @@
 set -euo pipefail
 trap 'echo "Error occurred at line ${LINENO} of ${BASH_SOURCE[0]}. Exiting..."; exit 1' ERR
 
-# Make APT non-interactive for automated builds (Docker, CI)
-# This avoids prompts from debconf/dpkg during package install/upgrade.
+# Running non-interactive
 export DEBIAN_FRONTEND=noninteractive
-export DEBCONF_NONINTERACTIVE_SEEN=true
-export APT_LISTCHANGES_FRONTEND=none
-export DEBIAN_PRIORITY=critical
 
-# Provide a small wrapper for `apt` so we automatically pass dpkg options
-# for commands that may trigger interactive config file prompts. We use
-# `command apt` to bypass the function when invoking the real binary.
-apt() {
-    local cmd="$1"; shift || true
-    case "$cmd" in
-        install|full-upgrade|upgrade|dist-upgrade|autoremove|remove|purge)
-            command apt "$cmd" -o Dpkg::Options::="--force-confdef" \
-                -o Dpkg::Options::="--force-confold" -y "$@"
-            ;;
-        *)
-            command apt "$cmd" "$@"
-            ;;
-    esac
-}
-
-# Set the current architecture
+# Get the arch
+ARCH=$(uname -m)
 
 #############################################
 # Update and Upgrade the current instance
@@ -48,7 +29,7 @@ apt update
 
 # Core utilities
 apt install -y autotools-dev coreutils file locales tzdata \
-    time tar xz-utils curl jq dbus xxd 
+    time tar xz-utils curl jq dbus xxd
 
 # Compression & archiving
 apt install -y p7zip-full p7zip-rar 7zip 7zip-standalone \
@@ -87,11 +68,11 @@ apt install -y iproute2 iputils-ping dnsutils net-tools \
 apt install -y gnupg2 haveged libnss3-tools pass openssl
 
 # Version control & SCM
-apt install -y mercurial subversion
+apt install -y mercurial subversion git
 
 # File & media processing
 apt install -y ffmpeg imagemagick mediainfo \
-    fonts-noto-color-emoji libwmf-bin git
+    fonts-noto-color-emoji libwmf-bin 
 
 # Scripting, tooling & QA
 apt install -y shellcheck parallel sudo
@@ -108,16 +89,19 @@ apt install -y automake build-essential binutils-dev binutils-multiarch \
     gcc g++ gdb gdbserver lld cmake cmake-data ninja-build ccache clang \
     clang-format clang-tidy clang-tools gfortran cpp gdb-multiarch
 
-if [[ $(uname -m) == "x86_64" ]]; then
-    # Installing cross-compilation tools (AMD64)
-    apt install -y binutils-x86-64-gnu binutils-x86-64-linux-gnu \
-        binutils-x86-64-linux-gnu-dbg gcc-*-x86-64-linux-gnu \
-        g++-*-x86-64-linux-gnu cpp-*-x86-64-linux-gnu
+# Installing cross-compilation tools (AMD64)
+apt install -y binutils-x86-64-linux-gnu binutils-x86-64-linux-gnu-dbg \
+    gcc-*-x86-64-linux-gnu g++-*-x86-64-linux-gnu cpp-*-x86-64-linux-gnu \
 
-    # Installing compilers for MinGW (Windows x64 target)
-    apt install -y mingw-w64 mingw-w64-tools mingw-w64-common \
-        binutils-mingw-w64 binutils-mingw-w64-x86-64 \
-        gcc-mingw-w64 gcc-mingw-w64-* g++-mingw-w64 g++-mingw-w64
+# Installing compilers for MinGW (Windows x64 target)
+apt install -y mingw-w64 mingw-w64-tools mingw-w64-common \
+    binutils-mingw-w64 binutils-mingw-w64-x86-64 \
+    gcc-mingw-w64 gcc-mingw-w64-* g++-mingw-w64 g++-mingw-w64
+
+if [[ "$ARCH" == "x86_64" ]]; then
+    apt install -y binutils-x86-64-gnu
+else
+    echo "binutils-x86-64-gnu is not available for ARM64"
 fi
 
 # Installing ARM toolchains
@@ -129,12 +113,18 @@ apt install -y llvm llvm-dev llvm-runtime clangd lld lldb \
 
 # Additional tools for building Linux kernels and modules
 apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
-    libelf-dev dwarves bc fakeroot libcap-dev \
-    libc6-dev-i386 libc6-dev-x32 libnuma-dev libudev-dev libpci-dev \
-    libiberty-dev libmnl-dev libbpf-dev
+    libelf-dev dwarves bc fakeroot libcap-dev libnuma-dev libudev-dev \
+    libpci-dev libiberty-dev libmnl-dev libbpf-dev
+
+if [[ "$ARCH" == "x86_64" ]]; then
+    apt install -y libc6-dev-i386 libc6-dev-x32
+else
+    echo "libc6 for I32 is not available on ARM64v8"
+fi
 
 # Installing Java Development Kit (OpenJDK 11, 17, and 21)
-apt install -y default-jdk openjdk-11-jdk openjdk-11-jre \
+apt install -y default-jdk \
+    openjdk-11-jdk openjdk-11-jre \
     openjdk-17-jdk openjdk-17-jre \
     openjdk-21-jdk openjdk-21-jre
 
