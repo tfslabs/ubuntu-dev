@@ -24,13 +24,12 @@ conda update --all -y
 
 conda install -y python=3
 
-conda install -y -c conda-forge setuptools pip sqlite \
-    wheel tk numpy pytz six python-dateutil \
-    freetype pandas scikit-learn ipython jupyter \
-    tensorflow pytorch matplotlib scipy yaml \
-    lxml snappy hdf5 cffi pyyaml click requests \
-    beautifulsoup4 attrs protobuf charset-normalizer \
-    idna urllib3 packaging opencv geopandas pyscf openpulse \
-    qiskit PyMySQL SQLAlchemy onetimepass
+conda install -y -c conda-forge \
+    setuptools pip sqlite wheel tk numpy pytz six \
+    python-dateutil pandas scikit-learn matplotlib \
+    scipy yaml lxml snappy hdf5 cffi pyyaml click \
+    requests beautifulsoup4 attrs charset-normalizer \
+    protobuf idna urllib3 packaging opencv geopandas  \
+    pyscf openpulse
 
 conda clean --all -y
