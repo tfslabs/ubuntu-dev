@@ -22,6 +22,12 @@ docker pull theflightsims/ubuntu-dev:noble-amd64
 docker pull theflightsims/ubuntu-dev:noble-arm64v8
 ```
 
+For Raspberry Pi, you can use this Dev Container - which is smaller for basic workloads.
+
+```bash
+docker pull theflightsims/ubuntu-dev:noble-rpi
+```
+
 ## Packages installed
 
 See in [PACKAGES.md](./PACKAGES.md)
