@@ -42,7 +42,7 @@ done
 
 # Specify platform for ARM64v8
 if [[ "$ARCH" == "x86_64" ]]; then
-    conda instakk -y -c conda-forge "julia"
+    conda install -y -c conda-forge "julia"
 else
     echo "Package 'julia' is not available on ARM64v8"
 fi
