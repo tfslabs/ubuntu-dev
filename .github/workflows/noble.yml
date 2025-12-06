@@ -7,6 +7,21 @@ on:
     branches: ["master"]
   schedule:
     - cron: "0 0 * * 1"
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      environment:
+        description: 'Environment deploying'
+        required: true
+        type: string
 
 jobs:
   build-noble-amd64:
