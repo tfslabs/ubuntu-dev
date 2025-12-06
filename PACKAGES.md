@@ -216,5 +216,5 @@
 | requests | Requests | `requests` | HTTP client for Python |
 | beautifulsoup4 | Beautiful Soup | `beautifulsoup4` | HTML parsing |
 | R Programming Language | R | `r-base` | R Programming Language |
-| Julia Programming Language | Julia | `julia` | Julia Programming Language |
+| Julia Programming Language | Julia | `julia` | Not available on ARM64v8 |
 | Qiskit | Qiskit | `qiskit` | Qiskit for Quantum Computers |
