@@ -30,16 +30,22 @@ conda config --set channel_priority strict
 # Update and install packages non-interactively
 conda update --all -y
 
-# Installing packages for Conda
+# Installing packages for Conda (Global)
 conda install -y python=3
 for pkg in setuptools pip sqlite wheel numpy pytz six \
         python-dateutil pandas scikit-learn matplotlib \
         scipy yaml lxml snappy hdf5 cffi pyyaml click \
         requests beautifulsoup4 attrs charset-normalizer \
-        protobuf idna urllib3 packaging r-base julia \
-        qiskit; do
+        protobuf idna urllib3 packaging r-base qiskit; do
     conda install -y -c conda-forge "$pkg"
 done
+
+# Specify platform for ARM64v8
+if [[ "$ARCH" == "x86_64" ]]; then
+    conda instakk -y -c conda-forge "julia"
+else
+    echo "Package 'julia' is not available on ARM64v8"
+fi
 
 # Clean cache
 conda clean --all -y
