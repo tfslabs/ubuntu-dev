@@ -1,0 +1,12 @@
+FROM ubuntu:noble
+
+WORKDIR /build
+
+COPY --chown=root:root pm_installs/apt_mini.sh /build/apt_mini.sh
+COPY --chown=root:root pm_installs/conda_mini.sh /build/conda_mini.sh
+
+RUN chmod +x /build/*.sh
+RUN ["/bin/bash", "/build/apt_mini.sh"]
+RUN ["/bin/bash", "/build/conda_mini.sh"]
+
+CMD ["/bin/bash"]

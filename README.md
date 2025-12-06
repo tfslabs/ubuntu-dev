@@ -12,7 +12,7 @@ DevOps users are recommended to use those available containers:
 
 ## Usage
 
-Pulling image using the Ubuntu codename (see above for available codenames)
+> For base images
 
 ```bash
 # Ubuntu 24.04 LTS (Noble, AMD64)
@@ -22,10 +22,14 @@ docker pull theflightsims/ubuntu-dev:noble-amd64
 docker pull theflightsims/ubuntu-dev:noble-arm64v8
 ```
 
-For Raspberry Pi, you can use this Dev Container - which is smaller for basic workloads.
+> For mini images
 
 ```bash
-docker pull theflightsims/ubuntu-dev:noble-rpi
+# Ubuntu 24.04 LTS (Noble, AMD64)
+docker pull theflightsims/ubuntu-dev:noble-mini-amd64
+
+# Ubuntu 24.04 LTS (Noble, ARM64v8)
+docker pull theflightsims/ubuntu-dev:noble-mini-arm64v8
 ```
 
 ## Packages installed

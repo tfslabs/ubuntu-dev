@@ -91,6 +91,8 @@
 
 ## 8. File & media processing
 
+> Not available on Mini Dev Containers
+
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
 | ffmpeg | FFmpeg | `ffmpeg` | Audio/video processing |
@@ -100,6 +102,8 @@
 | libwmf-bin | WMF tools | `libwmf-bin` | Convert Windows Metafile formats |
 
 ## 9. Scripting, tooling & QA
+
+> Not available on Mini Dev Containers
 
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
@@ -115,6 +119,8 @@
 | sphinxsearch | Sphinx Search | `sphinxsearch` | Full-text search engine |
 
 ## 11. Font configuration
+
+> Not available on Mini Dev Containers
 
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
@@ -164,6 +170,8 @@
 
 ## 16. Rust toolchain
 
+> Not available on Mini Dev Containers
+
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
 | rustc / cargo | Rust compiler & package manager | `rustc`, `cargo` | Rust language toolchain |
@@ -171,6 +179,8 @@
 | rust-gdb / rust-clippy / rustfmt | Rust tooling | `rust-gdb`, `rust-clippy`, `rustfmt` | Debugger helpers, lints, formatter |
 
 ## 17. Android SDK / platform tools
+
+> Not available on Mini Dev Containers
 
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
@@ -206,15 +216,15 @@
 | Miniconda | Miniconda installer | (installed to `/usr/local`) | Miniconda3 (latest for detected arch) |
 | python | Python | `python=3` | Conda-managed Python installation |
 | pip / setuptools / wheel | Python packaging | `pip`, `setuptools`, `wheel` | Packaging tools |
-| numpy | NumPy | `numpy` | Numeric arrays library |
-| pandas | Pandas | `pandas` | Data analysis library |
-| scikit-learn | scikit-learn | `scikit-learn` | ML library |
-| matplotlib | Matplotlib | `matplotlib` | Plotting library |
-| scipy | SciPy | `scipy` | Scientific computing |
-| hdf5 | HDF5 | `hdf5` | Hierarchical data format support |
-| pyyaml / yaml | YAML | `pyyaml`, `yaml` | YAML parsing |
-| requests | Requests | `requests` | HTTP client for Python |
-| beautifulsoup4 | Beautiful Soup | `beautifulsoup4` | HTML parsing |
-| R Programming Language | R | `r-base` | R Programming Language |
-| Julia Programming Language | Julia | `julia` | Not available on ARM64v8 |
-| Qiskit | Qiskit | `qiskit` | Qiskit for Quantum Computers |
+| numpy | NumPy | `numpy` | Not available on Mini Dev Containers |
+| pandas | Pandas | `pandas` | Not available on Mini Dev Containers |
+| scikit-learn | scikit-learn | `scikit-learn` | Not available on Mini Dev Containers |
+| matplotlib | Matplotlib | `matplotlib` | Not available on Mini Dev Containers |
+| scipy | SciPy | `scipy` | Not available on Mini Dev Containers |
+| hdf5 | HDF5 | `hdf5` | Not available on Mini Dev Containers |
+| pyyaml / yaml | YAML | `pyyaml`, `yaml` | Not available on Mini Dev Containers |
+| requests | Requests | `requests` | Not available on Mini Dev Containers |
+| beautifulsoup4 | Beautiful Soup | `beautifulsoup4` | Not available on Mini Dev Containers |
+| R Programming Language | R | `r-base` | Not available on Mini Dev Containers |
+| Julia Programming Language | Julia | `julia` | Not available on ARM64v8, Not available on Mini Dev Containers |
+| Qiskit | Qiskit | `qiskit` | Not available on Mini Dev Containers |

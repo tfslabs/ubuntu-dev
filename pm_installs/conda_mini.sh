@@ -32,12 +32,16 @@ conda update --all -y
 
 # Installing packages for Conda (Global)
 conda install -y python=3
-for pkg in setuptools pip sqlite wheel numpy pytz six \
-        matplotlib scipy yaml lxml snappy cffi pyyaml \
-        click beautifulsoup4 idna charset-normalizer \
-        attrs requests protobuf  urllib3 packaging; do
+for pkg in setuptools pip wheel; do
     conda install -y -c conda-forge "$pkg"
 done
+
+# # Specify platform for ARM64v8
+# if [[ "$ARCH" == "x86_64" ]]; then
+#     conda install -y -c conda-forge "julia"
+# else
+#     echo "Package 'julia' is not available on ARM64v8"
+# fi
 
 # Clean cache
 conda clean --all -y

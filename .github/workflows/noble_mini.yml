@@ -1,4 +1,4 @@
-name: Build Ubuntu 24.04 LTS Dev Container (Standard)
+name: Build Ubuntu 24.04 LTS Dev Container (Mini)
 permissions:
   contents: read
 
@@ -9,7 +9,7 @@ on:
     - cron: "0 0 * * 1"
 
 jobs:
-  build-noble-amd64:
+  build-noble-mini-amd64:
     runs-on: ubuntu-latest
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -41,13 +41,13 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./dockerfiles/noble
+          file: ./dockerfiles/noble_mini
           platforms: linux/amd64
           push: true
           tags: |
-            theflightsims/ubuntu-dev:noble-amd64
+            theflightsims/ubuntu-dev:noble-mini-amd64
 
-  build-noble-arm64v8:
+  build-noble-mini-arm64v8:
     runs-on: ubuntu-latest
     steps:
       - name: Free Disk Space (Ubuntu)
@@ -79,8 +79,8 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./dockerfiles/noble
+          file: ./dockerfiles/noble_mini
           platforms: linux/arm64/v8
           push: true
           tags: |
-            theflightsims/ubuntu-dev:noble-arm64v8
+            theflightsims/ubuntu-dev:noble-mini-arm64v8
