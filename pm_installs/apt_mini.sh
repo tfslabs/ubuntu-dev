@@ -55,8 +55,8 @@ apt install -y \
     libsecret-1-dev libyaml-dev zlib1g
 
 # Networking, SSH & network tools
-apt install -y iproute2 iputils-ping dnsutils net-tools \
-    netcat-openbsd openssh-client ssh sshpass rsync ftp \
+apt install -y iputils-ping dnsutils net-tools ssh \
+    netcat-openbsd openssh-client sshpass rsync ftp \
     pollinate rpcsvc-proto publicsuffix
 
 # Security & crypto
