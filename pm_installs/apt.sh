@@ -101,8 +101,7 @@ apt install -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
 
 # Installing LLVM toolchain
 apt install -y llvm llvm-dev llvm-runtime clangd lld lldb \
-    libclang-dev llvm-{14,15,16,18,20} llvm-{14,15,16,18,20}-dev \
-    llvm-{14,15,16,18,20}-runtime
+    libclang-dev llvm-{14,20} llvm-{14,20}-dev llvm-{14,20}-runtime
 
 # Additional tools for building Linux kernels and modules
 apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
