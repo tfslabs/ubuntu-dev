@@ -154,7 +154,7 @@
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
 | default-jdk | Default JDK | `default-jdk` | System default JDK (usually latest stable) |
-| openjdk-11-jdk / 17 / 21 / 25 | OpenJDK versions | `openjdk-11-jdk`, `openjdk-17-jdk`, `openjdk-21-jdk`, `openjdk-25-jdk` | Multiple JDK versions installed |
+| openjdk-11-jdk / 17 / 21 / 25 | OpenJDK versions | `openjdk-11-jdk`, `openjdk-17-jdk`, `openjdk-21-jdk`, `openjdk-25-jdk` | Multiple JDK versions installed (not available on Mini Dev Container) |
 
 ## 15. .NET SDKs & runtimes
 
