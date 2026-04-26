@@ -36,12 +36,5 @@ for pkg in setuptools pip wheel; do
     conda install -y -c conda-forge "$pkg"
 done
 
-# # Specify platform for ARM64v8
-# if [[ "$ARCH" == "x86_64" ]]; then
-#     conda install -y -c conda-forge "julia"
-# else
-#     echo "Package 'julia' is not available on ARM64v8"
-# fi
-
 # Clean cache
 conda clean --all -y

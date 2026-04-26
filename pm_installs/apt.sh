@@ -8,8 +8,7 @@ ARCH=$(uname -m)
 
 #############################################
 # Update and Upgrade the current instance
-apt update
-apt full-upgrade -y
+apt update && apt full-upgrade -y
 
 # Core APT Package
 apt install -y software-properties-common
@@ -36,41 +35,48 @@ apt install -y p7zip-full p7zip-rar 7zip 7zip-standalone \
 apt install -y autoconf automake binutils bison flex make \
     m4 pkg-config libtool swig
 
-# Libraries & dev headers (sorted, duplicates removed)
-apt install -y libaom3 libalgorithm-diff-perl \
-    libalgorithm-diff-xs-perl libalgorithm-merge-perl \
-    libarchive13 libasan8 libatomic1 libbinutils libbrotli1 \
-    libcc1-0 libc-dev-bin libc-devtools libc6 libc6-dev \
-    libc6-dev-*-cross libcurl4 libde265-0 libdeflate0 \
-    libcrypt-dev libctf-nobfd0 libdpkg-perl libexpat1 \
-    libfakeroot libfile-fcntllock-perl libfl2 libfontconfig1 \
-    libfreetype6 libgbm-dev libgmp-dev libgmpxx4ldbl \
-    libgcc-12-dev libgcc-s1 libgomp1 libgd3 libgsl-dev \
-    libgssapi-krb5-2 libgtk-3-0 libheif1 libitm1 \
-    libicu74 libjbig0 libjsoncpp25 liblsan0 libmagic-dev \
-    libmpc-dev libmpfr-dev libnghttp2-14 libnsl-dev libnsl2 \
-    libnuma1 libpng16-16 libpsl5 librhash0 librtmp1 \
-    libsecret-1-dev libssl3t64 libstdc++6 libstdc++-10-dev \
-    libstdc++-11-dev libstdc++-12-dev libtirpc-dev \
-    libtsan2 libubsan1 libuv1 libwebp7 libwmf-bin \
-    libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 \
-    libxkbfile-dev libxpm4 libx265-199 libxml2 libxss1 \
-    libyuv0 libyaml-dev zlib1g
+# Libraries & dev headers (organized alphabetically by category)
+apt install -y \
+    # Algorithm and compression libraries
+    libaom3 libalgorithm-diff-perl libalgorithm-diff-xs-perl \
+    libalgorithm-merge-perl libbrotli1 libdeflate0 liblzma5 \
+    # Archive and file utilities
+    libarchive13 libfile-fcntllock-perl libmagic-dev libzip4 \
+    # Core libraries
+    libc6 libc6-dev libc-dev-bin libc-devtools libgcc-12-dev \
+    libgcc-s1 libstdc++6 libstdc++-12-dev \
+    # Cryptography and security
+    libcrypt-dev libssl3 libgssapi-krb5-2 \
+    # Graphics and multimedia
+    libfreetype6 libheif1 libjpeg-turbo8 libpng16-16 libwebp7 \
+    libx265-199 libxml2 libyuv0 \
+    # Math and scientific computing
+    libgmp-dev libgmpxx4ldbl libmpc-dev libmpfr-dev libgsl-dev \
+    # Networking
+    libnghttp2-14 libpsl5 librtmp1 \
+    # System utilities
+    libexpat1 libicu74 libjsoncpp25 libnuma1 libnsl-dev libnsl2 \
+    libtirpc-dev libtsan2 libubsan1 \
+    # X11 and GUI
+    libx11-6 libx11-data libxcb1 libxau6 libxdmcp6 libxkbfile-dev \
+    libxpm4 libxss1 \
+    # Miscellaneous
+    libfl2 libfontconfig1 libgd3 libgtk-3-0 libmagic-dev \
+    libsecret-1-dev libyaml-dev zlib1g
 
 # Networking, SSH & network tools
-apt install -y iproute2 iputils-ping dnsutils net-tools \
-    netcat-openbsd openssh-client ssh sshpass rsync ftp \
+apt install -y iputils-ping dnsutils net-tools ssh \
+    netcat-openbsd openssh-client sshpass rsync ftp \
     pollinate rpcsvc-proto publicsuffix
 
 # Security & crypto
 apt install -y gnupg2 haveged libnss3-tools pass openssl
 
 # Version control & SCM
-apt install -y mercurial subversion git
+apt install -y git
 
 # File & media processing
-apt install -y ffmpeg imagemagick mediainfo \
-    fonts-noto-color-emoji libwmf-bin 
+apt install -y ffmpeg imagemagick mediainfo fonts-noto-color-emoji
 
 # Scripting, tooling & QA
 apt install -y shellcheck parallel sudo
@@ -85,7 +91,7 @@ apt install -y fontconfig-config fonts-dejavu-core
 # Installing General GNU compilers and build tools
 apt install -y automake build-essential binutils-dev binutils-multiarch \
     gcc g++ gdb gdbserver lld cmake cmake-data ninja-build ccache clang \
-    clang-format clang-tidy clang-tools gfortran cpp cpp-12 gdb-multiarch
+    clang-format clang-tidy clang-tools gfortran cpp gdb-multiarch
 
 # Installing cross-compilation tools (AMD64)
 apt install -y binutils-x86-64-linux-gnu binutils-x86-64-linux-gnu-dbg \
@@ -98,8 +104,6 @@ apt install -y mingw-w64 mingw-w64-tools mingw-w64-common \
 
 if [[ "$ARCH" == "x86_64" ]]; then
     apt install -y binutils-x86-64-gnu
-else
-    echo "binutils-x86-64-gnu is not available for ARM64"
 fi
 
 # Installing ARM toolchains
@@ -107,7 +111,8 @@ apt install -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
 
 # Installing LLVM toolchain
 apt install -y llvm llvm-dev llvm-runtime clangd lld lldb \
-    libclang-dev libllvm14 llvm-14 llvm-14-dev llvm-14-runtime
+    libclang-dev llvm-{14,15,16,18,20} llvm-{14,15,16,18,20}-dev \
+    llvm-{14,15,16,18,20}-runtime
 
 # Additional tools for building Linux kernels and modules
 apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
@@ -116,20 +121,19 @@ apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
 
 if [[ "$ARCH" == "x86_64" ]]; then
     apt install -y libc6-dev-i386 libc6-dev-x32
-else
-    echo "libc6 for I32 is not available on ARM64v8"
 fi
 
 # Installing Java Development Kit (OpenJDK 11, 17, and 21)
 apt install -y default-jdk \
-    openjdk-11-jdk openjdk-11-jre \
-    openjdk-17-jdk openjdk-17-jre \
-    openjdk-21-jdk openjdk-21-jre
+    openjdk-{11,17,21,25}-dbg \
+    openjdk-{11,17,21,25}-jdk \
+    openjdk-{11,17,21,25}-jre
 
 # Instaling .NET SDKs and runtimes
 apt install -y \
-    dotnet-sdk-8.0 aspnetcore-runtime-8.0 dotnet-runtime-8.0 \
-    dotnet-sdk-9.0 aspnetcore-runtime-9.0 dotnet-runtime-9.0
+    dotnet-sdk-{8.0,10.0} \
+    dotnet-sdk-{8.0,10.0}-source-built-artifacts \
+    dotnet-sdk-dbg-{8.0,10.0}
 
 # Installing Rust programming language and toolchain
 apt install -y rustc cargo rust-doc rust-src rust-gdb rust-clippy rustfmt
