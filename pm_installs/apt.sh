@@ -121,7 +121,6 @@ apt install -y default-jdk \
 # Instaling .NET SDKs and runtimes
 apt install -y \
     dotnet-sdk-{8.0,10.0} \
-    dotnet-sdk-{8.0,10.0}-source-built-artifacts \
     dotnet-sdk-dbg-{8.0,10.0}
 
 # Installing Rust programming language and toolchain
