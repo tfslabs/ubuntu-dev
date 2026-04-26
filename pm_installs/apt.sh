@@ -132,9 +132,6 @@ apt install -y rustc cargo rust-doc rust-src rust-gdb rust-clippy rustfmt
 apt install -y adb android-sdk-platform-tools android-sdk-build-tools \
     android-sdk-platform-tools-common fastboot
 
-# Installing Go programming language
-apt install -y golang golang-go golang-src
-
 # Installing Node.js and npm
 apt install -y nodejs npm yarn
 
