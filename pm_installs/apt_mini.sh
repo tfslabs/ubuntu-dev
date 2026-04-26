@@ -86,7 +86,7 @@ if [[ "$ARCH" == "x86_64" ]]; then
     apt install -y libc6-dev-i386 libc6-dev-x32
 fi
 
-# Installing Java Development Kit (OpenJDK 11, 17, and 21)
+# Installing Java Development Kit (default only on Mini Dev Container)
 apt install -y default-jdk
 
 # Instaling .NET SDKs and runtimes
