@@ -46,7 +46,7 @@
 | Tool / library | Friendly name | Package name | Notes |
 |---|---|---|---|
 | libc6, libc6-dev | GNU C Library | `libc6`, `libc6-dev` | Core C runtime and headers |
-| libssl3t64, libssl-dev | OpenSSL libraries | `libssl3t64`, `libssl-dev` | TLS / crypto libraries and headers |
+| libssl3, libssl-dev | OpenSSL libraries | `libssl3`, `libssl-dev` | TLS / crypto libraries and headers |
 | libcurl4 | libcurl | `libcurl4` | HTTP client library |
 | libpng16-16 | libpng | `libpng16-16` | PNG image support |
 | libxml2 | libxml2 | `libxml2` | XML parsing library |
