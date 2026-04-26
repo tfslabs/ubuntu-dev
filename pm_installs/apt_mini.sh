@@ -82,11 +82,6 @@ apt install -y mingw-w64 mingw-w64-tools mingw-w64-common \
 # Installing ARM toolchains
 apt install -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
 
-# Additional tools for building Linux kernels and modules
-apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
-    libelf-dev dwarves bc fakeroot libcap-dev libnuma-dev libudev-dev \
-    libpci-dev libiberty-dev libmnl-dev libbpf-dev
-
 if [[ "$ARCH" == "x86_64" ]]; then
     apt install -y libc6-dev-i386 libc6-dev-x32
 fi

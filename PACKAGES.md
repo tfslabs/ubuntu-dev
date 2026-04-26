@@ -141,6 +141,8 @@
 
 ## 13. Kernel build & low-level development
 
+> Not available on Mini Dev Containers
+
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
 | libncurses5-dev / libncursesw5-dev | ncurses dev | `libncurses5-dev`, `libncursesw5-dev` | Required to build kernel menuconfig |
