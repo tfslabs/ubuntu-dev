@@ -92,10 +92,7 @@ if [[ "$ARCH" == "x86_64" ]]; then
 fi
 
 # Installing Java Development Kit (OpenJDK 11, 17, and 21)
-apt install -y default-jdk \
-    openjdk-{11,17,21,25}-dbg \
-    openjdk-{11,17,21,25}-jdk \
-    openjdk-{11,17,21,25}-jre
+apt install -y default-jdk
 
 # Instaling .NET SDKs and runtimes
 apt install -y \
