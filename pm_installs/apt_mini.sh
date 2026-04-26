@@ -37,36 +37,26 @@ apt install -y autoconf automake binutils bison flex make \
 
 # Libraries & dev headers (organized alphabetically by category)
 apt install -y \
-    # Algorithm and compression libraries
     libaom3 libalgorithm-diff-perl libalgorithm-diff-xs-perl \
     libalgorithm-merge-perl libbrotli1 libdeflate0 liblzma5 \
-    # Archive and file utilities
     libarchive13 libfile-fcntllock-perl libmagic-dev libzip4 \
-    # Core libraries
     libc6 libc6-dev libc-dev-bin libc-devtools libgcc-12-dev \
     libgcc-s1 libstdc++6 libstdc++-12-dev \
-    # Cryptography and security
     libcrypt-dev libssl3 libgssapi-krb5-2 \
-    # Graphics and multimedia
     libfreetype6 libheif1 libjpeg-turbo8 libpng16-16 libwebp7 \
     libx265-199 libxml2 libyuv0 \
-    # Math and scientific computing
     libgmp-dev libgmpxx4ldbl libmpc-dev libmpfr-dev libgsl-dev \
-    # Networking
     libnghttp2-14 libpsl5 librtmp1 \
-    # System utilities
     libexpat1 libicu74 libjsoncpp25 libnuma1 libnsl-dev libnsl2 \
     libtirpc-dev libtsan2 libubsan1 \
-    # X11 and GUI
     libx11-6 libx11-data libxcb1 libxau6 libxdmcp6 libxkbfile-dev \
     libxpm4 libxss1 \
-    # Miscellaneous
     libfl2 libfontconfig1 libgd3 libgtk-3-0 libmagic-dev \
     libsecret-1-dev libyaml-dev zlib1g
 
 # Networking, SSH & network tools
-apt install -y iproute2 iputils-ping dnsutils net-tools \
-    netcat-openbsd openssh-client ssh sshpass rsync ftp \
+apt install -y iputils-ping dnsutils net-tools ssh \
+    netcat-openbsd openssh-client sshpass rsync ftp \
     pollinate rpcsvc-proto publicsuffix
 
 # Security & crypto
@@ -89,23 +79,15 @@ apt install -y mingw-w64 mingw-w64-tools mingw-w64-common \
     binutils-mingw-w64 binutils-mingw-w64-x86-64 \
     gcc-mingw-w64 gcc-mingw-w64-* g++-mingw-w64 g++-mingw-w64
 
-Installing ARM toolchains
+# Installing ARM toolchains
 apt install -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
-
-Additional tools for building Linux kernels and modules
-apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
-    libelf-dev dwarves bc fakeroot libcap-dev libnuma-dev libudev-dev \
-    libpci-dev libiberty-dev libmnl-dev libbpf-dev
 
 if [[ "$ARCH" == "x86_64" ]]; then
     apt install -y libc6-dev-i386 libc6-dev-x32
 fi
 
-# Installing Java Development Kit (OpenJDK 11, 17, and 21)
-apt install -y default-jdk \
-    openjdk-{11,17,21,25}-dbg \
-    openjdk-{11,17,21,25}-jdk \
-    openjdk-{11,17,21,25}-jre
+# Installing Java Development Kit (default only on Mini Dev Container)
+apt install -y default-jdk
 
 # Instaling .NET SDKs and runtimes
 apt install -y \

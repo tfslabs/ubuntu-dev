@@ -41,7 +41,7 @@
 
 ## 4. Libraries & development headers (selected)
 
-> Updated to reflect both `apt.sh` and `apt_mini.sh`.
+> (Large list in the original script; this table highlights key runtime & dev libraries.)
 
 | Tool / library | Friendly name | Package name | Notes |
 |---|---|---|---|
@@ -61,7 +61,6 @@
 
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
-| iproute2 | iproute2 | `iproute2` | Advanced IP routing utilities |
 | iputils-ping | ping | `iputils-ping` | ICMP ping utility |
 | dnsutils | DNS tools | `dnsutils` | dig, nslookup, etc. |
 | net-tools | legacy networking | `net-tools` | ifconfig, netstat (legacy) |
@@ -89,23 +88,117 @@
 
 ## 8. File & media processing
 
+> Not available on Mini Dev Containers
+
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
 | ffmpeg | FFmpeg | `ffmpeg` | Audio/video processing |
+| imagemagick | ImageMagick | `imagemagick` | Image manipulation CLI |
+| mediainfo | MediaInfo | `mediainfo` | Media file metadata extractor |
+| fonts-noto-color-emoji | Noto emoji | `fonts-noto-color-emoji` | Emoji font support |
+| libwmf-bin | WMF tools | `libwmf-bin` | Convert Windows Metafile formats |
 
-## 9. Additional tools for mini containers
+## 9. Scripting, tooling & QA
+
+> Not available on Mini Dev Containers
 
 | Tool | Friendly name | Package name | Notes |
 |---|---|---|---|
-| sqlite3 | SQLite | `sqlite3` | Lightweight database |
-| sphinxsearch | SphinxSearch | `sphinxsearch` | Full-text search engine |
-| nodejs, npm, yarn | Node.js & npm | `nodejs`, `npm`, `yarn` | JavaScript runtime and package manager |
-| dotnet-sdk | .NET SDK | `dotnet-sdk-{8.0,10.0}` | .NET development tools |
-| openjdk | OpenJDK | `openjdk-{11,17,21,25}-jdk` | Java development kit |
+| shellcheck | ShellCheck | `shellcheck` | Shell script linter |
+| parallel | GNU Parallel | `parallel` | Run jobs in parallel |
+| sudo | sudo | `sudo` | Privilege escalation utility |
 
-> This table reflects the minimal set of tools for lightweight containers.
+## 10. Databases & search
 
-## 10. Conda & Python ecosystem
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| sqlite3 | SQLite CLI | `sqlite3` | Embedded SQL database CLI |
+| sphinxsearch | Sphinx Search | `sphinxsearch` | Full-text search engine |
+
+## 11. Font configuration
+
+> Not available on Mini Dev Containers
+
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| fontconfig-config | Fontconfig config | `fontconfig-config` | Fontconfig system files |
+| fonts-dejavu-core | DejaVu fonts | `fonts-dejavu-core` | Common TTF fonts |
+
+## 12. Compilers & toolchains (GNU, LLVM, cross)
+
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| gcc / g++ | GNU C/C++ compilers | `gcc`, `g++` | Standard system compilers |
+| gdb / gdbserver / gdb-multiarch | GNU Debugger | `gdb`, `gdbserver`, `gdb-multiarch` | Debugging tools |
+| clang / clang-format / clang-tidy | Clang toolchain | `clang`, `clang-format`, `clang-tidy` | LLVM C/C++ toolchain |
+| lld / lldb | LLVM linker & debugger | `lld`, `lldb` | LLVM tooling |
+| cmake / ninja-build | Build systems | `cmake`, `ninja-build` | Build orchestration |
+| build-essential | Build meta-package | `build-essential` | Includes make, gcc, g++ |
+| binutils-x86-64-linux-gnu | Binutils x86_64 | `binutils-x86-64-linux-gnu` | Cross linker for AMD64 |
+| mingw-w64 | MinGW-w64 cross compilers | `mingw-w64`, `gcc-mingw-w64` | Windows cross compilation |
+| gcc-arm-none-eabi | ARM bare-metal cross compiler | `gcc-arm-none-eabi` | Cortex-M toolchain |
+| binutils-arm-none-eabi | ARM binutils | `binutils-arm-none-eabi` | ARM assembler/linker |
+
+## 13. Kernel build & low-level development
+
+> Not available on Mini Dev Containers
+
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| libncurses5-dev / libncursesw5-dev | ncurses dev | `libncurses5-dev`, `libncursesw5-dev` | Required to build kernel menuconfig |
+| libelf-dev | libelf dev | `libelf-dev` | ELF utilities / headers |
+| bc | bc | `bc` | Calculator used in kernel builds |
+| dwarves | dwarves | `dwarves` | Kernel symbol tools (e.g., pahole) |
+| libbpf-dev | libbpf dev | `libbpf-dev` | eBPF helper library headers |
+
+## 14. Java & JVM ecosystem
+
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| default-jdk | Default JDK | `default-jdk` | System default JDK (usually latest stable) |
+| openjdk-11-jdk / 17 / 21 / 25 | OpenJDK versions | `openjdk-11-jdk`, `openjdk-17-jdk`, `openjdk-21-jdk`, `openjdk-25-jdk` | Multiple JDK versions installed (not available on Mini Dev Container) |
+
+## 15. .NET SDKs & runtimes
+
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| dotnet-sdk-8.0 / 10.0 | .NET SDK | `dotnet-sdk-8.0`, `dotnet-sdk-10.0` | SDKs for .NET 8 and 10 |
+| dotnet-sdk-dbg-8.0 / 10.0 | .NET SDK Debug symbols | `dotnet-sdk-dbg-8.0`, `dotnet-sdk-dbg-10.0` | Debug symbols for .NET 8 and 10 |
+
+## 16. Rust toolchain
+
+> Not available on Mini Dev Containers
+
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| rustc / cargo | Rust compiler & package manager | `rustc`, `cargo` | Rust language toolchain |
+| rust-doc / rust-src | Rust docs & sources | `rust-doc`, `rust-src` | Documentation and sources |
+| rust-gdb / rust-clippy / rustfmt | Rust tooling | `rust-gdb`, `rust-clippy`, `rustfmt` | Debugger helpers, lints, formatter |
+
+## 17. Android SDK / platform tools
+
+> Not available on Mini Dev Containers
+
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| adb / fastboot | ADB & Fastboot | `adb`, `fastboot` | Android device tools |
+| android-sdk-platform-tools / android-sdk-build-tools | Android SDK CLI | `android-sdk-platform-tools`, `android-sdk-build-tools` | Command-line SDK components |
+
+## 18. Node.js / npm / yarn
+
+| Tool | Friendly name | Package name | Notes |
+|---|---|---|---|
+| nodejs | Node.js | `nodejs` | JavaScript runtime |
+| npm | npm | `npm` | Node package manager |
+| yarn | Yarn | `yarn` | Alternative JS package manager |
+
+## 19. Ruby on Rails
+
+| Package | Friendly Name | Package Name | Notes |
+|---|---|---|---|
+| Ruby | Ruby Full Package | `ruby-full` | Ruby Programming Language |
+
+## 20. Conda & Python ecosystem
 
 > Installed by `conda.sh` (Miniconda installer + conda-forge channel).
 

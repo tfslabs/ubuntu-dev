@@ -37,30 +37,20 @@ apt install -y autoconf automake binutils bison flex make \
 
 # Libraries & dev headers (organized alphabetically by category)
 apt install -y \
-    # Algorithm and compression libraries
     libaom3 libalgorithm-diff-perl libalgorithm-diff-xs-perl \
     libalgorithm-merge-perl libbrotli1 libdeflate0 liblzma5 \
-    # Archive and file utilities
     libarchive13 libfile-fcntllock-perl libmagic-dev libzip4 \
-    # Core libraries
     libc6 libc6-dev libc-dev-bin libc-devtools libgcc-12-dev \
     libgcc-s1 libstdc++6 libstdc++-12-dev \
-    # Cryptography and security
     libcrypt-dev libssl3 libgssapi-krb5-2 \
-    # Graphics and multimedia
     libfreetype6 libheif1 libjpeg-turbo8 libpng16-16 libwebp7 \
     libx265-199 libxml2 libyuv0 \
-    # Math and scientific computing
     libgmp-dev libgmpxx4ldbl libmpc-dev libmpfr-dev libgsl-dev \
-    # Networking
     libnghttp2-14 libpsl5 librtmp1 \
-    # System utilities
     libexpat1 libicu74 libjsoncpp25 libnuma1 libnsl-dev libnsl2 \
     libtirpc-dev libtsan2 libubsan1 \
-    # X11 and GUI
     libx11-6 libx11-data libxcb1 libxau6 libxdmcp6 libxkbfile-dev \
     libxpm4 libxss1 \
-    # Miscellaneous
     libfl2 libfontconfig1 libgd3 libgtk-3-0 libmagic-dev \
     libsecret-1-dev libyaml-dev zlib1g
 
@@ -111,8 +101,7 @@ apt install -y gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi
 
 # Installing LLVM toolchain
 apt install -y llvm llvm-dev llvm-runtime clangd lld lldb \
-    libclang-dev llvm-{14,15,16,18,20} llvm-{14,15,16,18,20}-dev \
-    llvm-{14,15,16,18,20}-runtime
+    libclang-dev llvm-{14,20} llvm-{14,20}-dev llvm-{14,20}-runtime
 
 # Additional tools for building Linux kernels and modules
 apt install -y libncurses5-dev libncursesw5-dev flex bison libssl-dev \
@@ -132,7 +121,6 @@ apt install -y default-jdk \
 # Instaling .NET SDKs and runtimes
 apt install -y \
     dotnet-sdk-{8.0,10.0} \
-    dotnet-sdk-{8.0,10.0}-source-built-artifacts \
     dotnet-sdk-dbg-{8.0,10.0}
 
 # Installing Rust programming language and toolchain
@@ -141,9 +129,6 @@ apt install -y rustc cargo rust-doc rust-src rust-gdb rust-clippy rustfmt
 # Installing Android SDK command-line tools
 apt install -y adb android-sdk-platform-tools android-sdk-build-tools \
     android-sdk-platform-tools-common fastboot
-
-# Installing Go programming language
-apt install -y golang golang-go golang-src
 
 # Installing Node.js and npm
 apt install -y nodejs npm yarn
